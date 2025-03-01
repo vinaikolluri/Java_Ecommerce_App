@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Attractive Animated Backgrounds */
+@layer base {
+  /* Glowing Particles */
+  .bg-particles {
+    background: radial-gradient(ellipse at center, #57fa85 0%, #f1f1f1 100%);
+    animation: particleAnimation 60s linear infinite;
+  }
+
+  @keyframes particleAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Colorful Bubbles */
+  .bg-bubbles {
+    background: #f1f1f1;
+    background-image: radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 0
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 127, 80, 0.2) 25%,
+        transparent 0
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(0, 255, 255, 0.2) 25%,
+        transparent 0
+      );
+    background-size: 100px 100px;
+    animation: bubblesAnimation 30s linear infinite;
+  }
+
+  @keyframes bubblesAnimation {
+    0% {
+      background-position: 0% 0%, 50% 50%, 100% 0%;
+    }
+    100% {
+      background-position: 100% 0%, 0% 50%, 50% 100%;
+    }
+  }
+
+  /* Pulsing Gradient */
+  .bg-pulsing {
+    background: radial-gradient(circle, #ffcdd2, #ef9a9a, #e53935);
+    background-size: 200% 200%;
+    animation: pulsingAnimation 10s ease infinite;
+  }
+
+  @keyframes pulsingAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Animated Waves */
+  .bg-waves {
+    background: linear-gradient(135deg, #954d4d 25%, transparent 25%) -50px 0,
+      linear-gradient(225deg, #6dd360 25%, transparent 25%) -50px 0,
+      linear-gradient(315deg, #293b9e 25%, transparent 25%) 0 0,
+      linear-gradient(45deg, #9ec511 25%, transparent 25%) 0 0;
+    background-size: 100px 100px;
+    animation: waveAnimation 20s linear infinite;
+  }
+
+  @keyframes waveAnimation {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100px 100px;
+    }
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .shadow-soft {
+    @apply shadow-lg shadow-black/5;
+  }
+
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-md;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(to right, #6366f1, #ec4899) 1;
+  }
+}
+
+/* Interactive Elements */
+@layer components {
+  .btn-gradient {
+    @apply relative inline-block px-6 py-3 overflow-hidden transition-all duration-300;
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+    background-size: 200% auto;
+  }
+
+  .btn-gradient:hover {
+    background-position: right center;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .nav-link {
+    @apply relative text-gray-600 hover:text-gray-900 transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-200;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
+:root {
+  --toastify-z-index: 9999;
+}

@@ -1,0 +1,8 @@
+body {
+    font-family: 'Amazon Ember', sans-serif;
+  }
+  .carousel .control-arrow {
+    background-color: rgba(0, 0, 0, 0.5); /* Ensure visibility */
+    z-index: 10; /* Keep above images */
+  }
+  
